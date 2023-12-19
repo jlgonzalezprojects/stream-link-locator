@@ -1,0 +1,2 @@
+# StreamLinkLocator
+Get Acestream channels
