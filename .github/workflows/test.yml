@@ -1,0 +1,31 @@
+name: Download s3 file
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-north-1
+          role-to-assume: arn:aws:iam::488068775262:role/ActionsS3ReadAccess
+          role-session-name: ActionsS3ReadAccess
+          role-duration-seconds: 900
+
+      - name: Download file
+        run: |
+           aws s3 cp s3://streampdftest/adventofcode.com_2023_day_1_input.txt .
