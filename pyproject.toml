@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "stream-link-locator"
+version = "0.1.0"
+description = "Acestream link locator"
+authors = ["Jose Luis"]
+readme = "README.md"
+packages = [{include = "stream_link_locator"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+beautifulsoup4= "^4.12"
+torpy = "^1.1.6"
+requests = "2.25.1"
+sqlalchemy = "^2.0.23"
+dynaconf = "^3.2.4"
+fastapi = "^0.105.0"
+uvicorn = "^0.25.0"
+psycopg2 = "^2.9.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4"
+pytest-cov = "^4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
